@@ -1,7 +1,4 @@
-// import 'tutorials/numbers.dart' show age;
-
-import 'package:week1/tutorials/lists.dart';
-import 'package:week1/tutorials/sets.dart';
+import 'package:week1/tutorials/classes.dart';
 
 /// entry point of application
 void main() {
@@ -13,17 +10,24 @@ void main() {
   // print(names.last);
   // print(names.indexOf('derrick'));
   // print(names.elementAt(2));
-  print(names); // original
-  names.addAll(['hamza', 'taufiq', 'quabynah']);
-  print(names); // updated with new list
-  names.removeRange(1, 3);
-  print(names); // final list after removal
+  // print(names); // original
+  // names.addAll(['hamza', 'taufiq', 'quabynah']);
+  // print(names); // updated with new list
+  // names.removeRange(1, 3);
+  // print(names); // final list after removal
 
   /// working with sets
-  print(halogens);
+  // print(halogens);
 
   /// using dart cascade notation
-  print(halogens.union(halogens
-    ..remove('chlorine')
-    ..add('bilson')));
+  // print(halogens.union(halogens
+  //   ..remove('chlorine')
+  //   ..add('bilson')));
+
+  var user = User(firstName: 'Dennis', lastName: 'Bilson');
+  // user.firstName = 'Quabynah'; // not possible for final fields
+  user = user.copyWith(firstName: 'Quabynah', lastName: 'Hamza');
+
+  print(user.firstName);
+  print(user.lastName);
 }
