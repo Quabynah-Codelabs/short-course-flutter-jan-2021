@@ -12,6 +12,7 @@ class BlogApp extends StatelessWidget {
       title: kAppName,
       theme: ThemeData(
         textTheme: kDefaultTextTheme,
+        cardColor: kCardColor,
         colorScheme: ColorScheme.light(
           primary: kPrimaryColor,
           background: kBackgroundColor,
