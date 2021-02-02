@@ -1,4 +1,5 @@
 import 'package:blog_app_project/app/pages/pages.dart';
+import 'package:blog_app_project/app/pages/routes.dart';
 import 'package:blog_app_project/shared/shared.dart';
 import 'package:flutter/material.dart';
 
@@ -10,6 +11,7 @@ class BlogApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: kAppName,
       theme: ThemeData(
+        textTheme: kDefaultTextTheme,
         colorScheme: ColorScheme.light(
           primary: kPrimaryColor,
           background: kBackgroundColor,
@@ -22,7 +24,8 @@ class BlogApp extends StatelessWidget {
       darkTheme: ThemeData(
         colorScheme: ColorScheme.dark(),
       ),
-      home: WelcomePage(),
+      initialRoute: CustomPageRoutes.INITIAL,
+      routes: CustomPageRoutes.routes,
     );
   }
 }
