@@ -1,3 +1,5 @@
+import 'package:meta/meta.dart';
+
 /// Classes -> also known as `object constructors`
 ///
 /// Used as blueprints for creating new objects
@@ -12,6 +14,8 @@ abstract class User {
   String id;
 
   bool canEdit();
+
+  void add(int num1, int num2);
 }
 
 /// Concrete Classes
@@ -25,7 +29,8 @@ class Reader extends User {
   /// non-parameterized constructor
   // Reader();
 
-  Reader(String id) {
+  /// parameterized constructor
+  Reader({@required String id}) {
     this._id = id;
   }
 
@@ -39,6 +44,17 @@ class Reader extends User {
 
   @override
   bool canEdit() => false;
+
+  @override
+  void add(int num1, int num2) {
+    // string concatenation
+    // print('Sum -> ' + (num1 + num2).toString());
+
+    // string interpolation
+    print('Sum -> ${(num1 + num2)}');
+
+    // var id = int.parse('123');
+  }
 }
 
 /// constructors -> used to create instances of a class
@@ -48,7 +64,7 @@ class Publisher extends User {
   DateTime dob;
 
   /// parameterized constructor
-  Publisher(this.id, this.dob);
+  Publisher({this.id, this.dob});
 
   @override
   bool canEdit() => true;
@@ -57,4 +73,13 @@ class Publisher extends User {
     var currentDate = DateTime.now();
     return currentDate.year - dob.year;
   }
+
+  @override
+  void add(int num1, int num2) {
+    // TODO: implement add
+  }
+
+  // void add(int num1, int num2, int num3) {
+  //   add(num1 + num2, num3);
+  // }
 }

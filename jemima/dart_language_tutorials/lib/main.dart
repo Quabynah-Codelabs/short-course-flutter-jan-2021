@@ -1,12 +1,12 @@
 import 'klasses/klasses.dart';
 
 void main() {
-  var user = Reader('123'); // reader object
+  var user = Reader(id: '123'); // reader object
   user.id; // getter
   print(user.id);
   user.id = '2345'; // setter
   print(user.id);
 
-  var pub = Publisher('123', DateTime.utc(2000));
+  var pub = Publisher(dob: DateTime.utc(2000), id: '123');
   print(pub.calcAge());
 }
