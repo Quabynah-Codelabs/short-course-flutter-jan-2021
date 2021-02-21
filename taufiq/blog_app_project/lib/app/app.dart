@@ -22,6 +22,7 @@ class BlogApp extends StatelessWidget {
         ),
       ),
       darkTheme: ThemeData(
+        textTheme: kDefaultTextTheme,
         colorScheme: ColorScheme.dark(),
       ),
       initialRoute: CustomPageRoutes.INITIAL,

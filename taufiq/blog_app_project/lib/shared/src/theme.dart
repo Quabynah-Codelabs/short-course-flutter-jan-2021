@@ -10,7 +10,7 @@ final kDefaultTextTheme = TextTheme(
   headline3: GoogleFonts.poppins(fontSize: 49, fontWeight: FontWeight.w500),
   headline4: GoogleFonts.poppins(
     fontSize: 35,
-    fontWeight: FontWeight.w500,
+    fontWeight: FontWeight.w700,
     letterSpacing: 0.25,
     color: kBlackColor.withOpacity(kEmphasisHigh),
   ),

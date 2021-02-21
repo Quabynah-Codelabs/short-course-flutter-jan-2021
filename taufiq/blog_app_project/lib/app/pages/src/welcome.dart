@@ -21,17 +21,15 @@ class _WelcomePageState extends State<WelcomePage> {
     var kWidth = size.width;
     var kHeight = size.height;
 
-    var buttonWidth = 140.0;
-
     return Scaffold(
       body: SafeArea(
         child: Container(
           height: kHeight,
           width: kWidth,
           padding: EdgeInsets.fromLTRB(
-            kSpacingX24,
+            kSpacingX28,
             kSpacingX20,
-            kSpacingX24,
+            kSpacingX28,
             kSpacingX36,
           ),
           child: Stack(
@@ -63,8 +61,8 @@ class _WelcomePageState extends State<WelcomePage> {
 
                     ///
                     Text(
-                      'Publish your Passion in Your Own Way\nIt\'s free',
-                      style: kTheme.textTheme.headline5,
+                      'Publish Your\nPassion in Own Way\nIt\'s Free',
+                      style: kTheme.textTheme.headline4,
                     ),
 
                     SizedBox(height: kSpacingX24),
@@ -103,7 +101,7 @@ class _WelcomePageState extends State<WelcomePage> {
                       ],
                     ),
 
-                    SizedBox(height: kSpacingX24),
+                    SizedBox(height: kSpacingX36),
 
                     /// buttons
                     Row(

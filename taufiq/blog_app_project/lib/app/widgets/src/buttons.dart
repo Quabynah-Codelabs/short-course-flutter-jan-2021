@@ -6,7 +6,7 @@ class ButtonPrimary extends StatelessWidget {
   const ButtonPrimary({
     @required this.buttonText,
     @required this.onTap,
-    this.buttonWidth = 140.0,
+    this.buttonWidth,
   });
 
   final String buttonText;
@@ -16,12 +16,13 @@ class ButtonPrimary extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var kTheme = Theme.of(context);
+    var kWidth  = MediaQuery.of(context).size.width;
 
     return InkWell(
       borderRadius: BorderRadius.circular(kSpacingX20),
       onTap: onTap,
       child: Container(
-        width: buttonWidth,
+        width: buttonWidth ?? kWidth * 0.35,
         alignment: Alignment.center,
         padding: EdgeInsets.symmetric(
           vertical: kSpacingX12,
@@ -35,7 +36,7 @@ class ButtonPrimary extends StatelessWidget {
         ),
         decoration: BoxDecoration(
           color: kTheme.colorScheme.primary,
-          borderRadius: BorderRadius.circular(kSpacingX20),
+          borderRadius: BorderRadius.circular(kSpacingX28),
         ),
       ),
     );
@@ -47,7 +48,7 @@ class ButtonOutlined extends StatelessWidget {
   const ButtonOutlined({
     @required this.buttonText,
     @required this.onTap,
-    this.buttonWidth = 140.0,
+    this.buttonWidth,
   });
 
   final String buttonText;
@@ -57,12 +58,13 @@ class ButtonOutlined extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var kTheme = Theme.of(context);
+    var kWidth  = MediaQuery.of(context).size.width;
 
     return InkWell(
       borderRadius: BorderRadius.circular(kSpacingX20),
       onTap: onTap,
       child: Container(
-        width: buttonWidth,
+        width: buttonWidth ?? kWidth * 0.35,
         alignment: Alignment.center,
         padding: EdgeInsets.symmetric(
           vertical: kSpacingX12,
@@ -76,7 +78,7 @@ class ButtonOutlined extends StatelessWidget {
         ),
         decoration: BoxDecoration(
           border: Border.all(color: kTheme.colorScheme.onBackground),
-          borderRadius: BorderRadius.circular(kSpacingX20),
+          borderRadius: BorderRadius.circular(kSpacingX28),
         ),
       ),
     );
