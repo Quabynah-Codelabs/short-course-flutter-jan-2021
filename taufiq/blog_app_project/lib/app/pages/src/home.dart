@@ -1,13 +1,18 @@
 import 'package:blog_app_project/app/pages/routes.dart';
+import 'package:blog_app_project/app/widgets/widgets.dart';
+import 'package:blog_app_project/data/entities/entities.dart';
 import 'package:blog_app_project/shared/shared.dart';
 import 'package:flutter/material.dart';
 
+/// Home page -> contains all blog posts
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
+  double kWidth, kHeight;
+
   @override
   Widget build(BuildContext context) {
     /// get instance of the current theme
@@ -17,8 +22,8 @@ class _HomePageState extends State<HomePage> {
     var size = MediaQuery.of(context).size;
 
     /// get height & width
-    var kWidth = size.width;
-    var kHeight = size.height;
+    kWidth = size.width;
+    kHeight = size.height;
 
     return Scaffold(
       body: SafeArea(
@@ -106,7 +111,9 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
 
-              /// todo -> build middle part
+              /// blog posts list
+              _buildBlogPosts()
+
               /// todo -> build bottom navigation part
             ],
           ),
@@ -162,4 +169,74 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       );
+
+  /// This section will contain a list of sample blog posts
+  /// This will cover the remaining space on the device's display so we
+  /// use the [Expanded] widget -> allows the child widget to cover up the remaining
+  /// space in a [Column] or a [Row]
+  Widget _buildBlogPosts() => Expanded(
+        child: Container(
+          margin: EdgeInsets.only(top: kSpacingX16),
+
+          /// we use a list view to build rows of blog posts to show
+          /// we use one of the named constructors (i.e. ListView#separated)
+          /// to create this list. By default, the list scrolls vertically.
+          /// This can be altered using the scrollDirection property which
+          /// accepts a enumeration class of type [Axis]
+          child: ListView.separated(
+            /// scrolling direction of the list
+            scrollDirection: Axis.vertical,
+
+            /// returns a blog list item at the current index
+            itemBuilder: (BuildContext context, int index) {
+              return BlogPostListItem(post: sampleBlogs[index]);
+            },
+
+            /// creates a separation between the items in the list
+            separatorBuilder: (_, __) => SizedBox(height: kSpacingX12),
+
+            /// size of the list to display
+            itemCount: sampleBlogs.length, // this is = 4
+          ),
+        ),
+      );
 }
+
+/// Now let's build the scaffold for each list item
+/// We will use an external widget
+/// But how will we model a blog post list item in the first place?
+/// We need to know certain basic properties about it. Taking a look at the mockup image,
+/// we can gather the following properties:
+/// 1. title
+/// 2. description
+/// 3. author/publisher
+/// 4. timestamp (when it was created or last edited)
+/// 5. # of reviews/applause
+/// 6. # of comments/remarks
+/// 7. photo url (reference to image for each post)
+/// 8. category (latest/ featured/ premium)
+///
+/// With these properties in mind, let's create a data model
+/// using the clean architecture approach, which we would cover when we meet
+/// again in person, we need to layers for our data model to enable
+/// us write testable codes. (domain layer & data layer)
+///
+/// The domain layer contains abstract classes upon which the data layer creates
+/// concrete class
+///
+/// an example is:
+///
+/// -------------DOMAIN LAYER------------
+/// abstract class User {
+///   String id;
+/// }
+///
+/// ------------DATA LAYER----------------
+/// class Publisher extends User {
+///   @override
+///   String id;
+/// }
+///
+/// The above example shows that a Publisher is a type of User by
+/// inheritance. But to keep things simple for now, I will create it the normal way.
+///

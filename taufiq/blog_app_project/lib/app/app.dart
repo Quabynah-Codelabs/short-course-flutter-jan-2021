@@ -26,7 +26,7 @@ class BlogApp extends StatelessWidget {
         colorScheme: ColorScheme.dark(),
       ),
       initialRoute: CustomPageRoutes.INITIAL,
-      routes: CustomPageRoutes.routes,
+      onGenerateRoute: CustomPageRoutes.generateRoutes,
     );
   }
 }
