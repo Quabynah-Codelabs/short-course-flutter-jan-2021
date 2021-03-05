@@ -1,6 +1,5 @@
 import 'package:blog_app_project/data/entities/entities.dart';
 import 'package:blog_app_project/shared/shared.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 /// Details page for each [BlogPost]

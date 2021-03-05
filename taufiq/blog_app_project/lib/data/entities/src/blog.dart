@@ -58,7 +58,7 @@ const sampleBlogs = <BlogPost>[
           "https://images.unsplash.com/photo-1593642634402-b0eb5e2eebc9?ixid=MXwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxMXx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60",
       timestamp: "3 Feb",
       reviews: 32200,
-      comments: 8000,
+      comments: 10000,
       category: "Latest",
       publisher: "Ken Rogers"),
   BlogPost(
@@ -74,25 +74,26 @@ const sampleBlogs = <BlogPost>[
       imageUrl:
           "https://images.unsplash.com/photo-1613722205361-c75c5f1042fb?ixid=MXwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw5fHx8ZW58MHx8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60",
       timestamp: "3 Feb",
-      reviews: 22800,
-      comments: 8000,
+      reviews: 80300,
+      comments: 9000,
       category: "Latest",
       publisher: "Ken Rogers"),
   BlogPost(
-      id: "4",
-      title: "Using motion design 2 animate graphics",
-      description:
-          """Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    id: "4",
+    title: "Using motion design 2 animate graphics",
+    description:
+        """Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
 	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
 	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.""",
-      imageUrl:
-          "https://images.unsplash.com/photo-1613822362343-c014d17ee099?ixid=MXwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxNHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60",
-      timestamp: "3 Feb",
-      reviews: 22800,
-      comments: 8000,
-      category: "Latest",
-      publisher: "Ken Rogers"),
+    imageUrl:
+        "https://images.unsplash.com/photo-1613822362343-c014d17ee099?ixid=MXwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxNHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60",
+    timestamp: "3 Feb",
+    reviews: 22800,
+    comments: 8000,
+    category: "Latest",
+    publisher: "Ken Rogers",
+  ),
 ];
