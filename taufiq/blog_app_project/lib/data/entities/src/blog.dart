@@ -2,15 +2,15 @@
 class BlogPost {
   /// constructors
   const BlogPost({
-    this.id,
-    this.title,
-    this.description,
-    this.imageUrl,
-    this.publisher,
-    this.timestamp,
-    this.category,
-    this.reviews,
-    this.comments,
+    required this.id,
+    required this.title,
+    required this.description,
+    required this.imageUrl,
+    required this.publisher,
+    required this.timestamp,
+    required this.category,
+    required this.reviews,
+    required this.comments,
   });
 
   /// props

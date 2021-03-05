@@ -158,7 +158,7 @@ class _WelcomePageState extends State<WelcomePage> {
                                 ),
                               ],
                             ),
-                            style: kTheme.textTheme.bodyText2.copyWith(
+                            style: kTheme.textTheme.bodyText2?.copyWith(
                               fontWeight: FontWeight.w400,
                             ),
                           )

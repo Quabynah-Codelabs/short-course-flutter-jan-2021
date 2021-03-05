@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 class BlogDetailsPage extends StatefulWidget {
   const BlogDetailsPage({@required this.post});
 
-  final BlogPost post;
+  final BlogPost? post;
 
   @override
   _BlogDetailsPageState createState() => _BlogDetailsPageState();
@@ -52,7 +52,7 @@ class _BlogDetailsPageState extends State<BlogDetailsPage> {
                 width: kWidth,
                 child: Stack(
                   fit: StackFit.expand,
-                  overflow: Overflow.visible,
+                  clipBehavior: Clip.none,
                   children: [
                     /// image
                     Positioned.fill(
@@ -116,7 +116,7 @@ class _BlogDetailsPageState extends State<BlogDetailsPage> {
                       TextSpan(text: 'By'),
                       TextSpan(text: '\t'),
                       TextSpan(
-                        text: widget.post.publisher,
+                        text: widget.post?.publisher ?? 'No publisher found',
                         // inherit current text style & apply font weight
                         style: TextStyle(fontWeight: FontWeight.w700),
                       ),
@@ -130,7 +130,7 @@ class _BlogDetailsPageState extends State<BlogDetailsPage> {
               Padding(
                 padding: EdgeInsets.symmetric(vertical: kSpacingX12),
                 child: Text(
-                  widget.post.title,
+                  widget.post?.title ?? 'No title',
                   style: kTheme.textTheme.headline5,
                 ),
               ),
@@ -138,7 +138,7 @@ class _BlogDetailsPageState extends State<BlogDetailsPage> {
               /// description
               Expanded(
                 child: Text(
-                  widget.post.description,
+                  widget.post?.description ?? 'No description',
                   style: kTheme.textTheme.bodyText1,
                   textAlign: TextAlign.start,
                 ),

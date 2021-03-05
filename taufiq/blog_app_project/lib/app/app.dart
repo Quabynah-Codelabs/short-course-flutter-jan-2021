@@ -12,6 +12,7 @@ class BlogApp extends StatelessWidget {
       theme: ThemeData(
         textTheme: kDefaultTextTheme,
         cardColor: kCardColor,
+        scaffoldBackgroundColor: kBackgroundColor,
         colorScheme: ColorScheme.light(
           primary: kPrimaryColor,
           background: kBackgroundColor,
@@ -25,6 +26,7 @@ class BlogApp extends StatelessWidget {
         textTheme: kDefaultTextTheme,
         colorScheme: ColorScheme.dark(),
       ),
+      themeMode: ThemeMode.light,
       initialRoute: CustomPageRoutes.INITIAL,
       onGenerateRoute: CustomPageRoutes.generateRoutes,
     );

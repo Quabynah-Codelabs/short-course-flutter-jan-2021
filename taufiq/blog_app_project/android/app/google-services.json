@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "969654664067",
+    "project_id": "outcrowd-mobile",
+    "storage_bucket": "outcrowd-mobile.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:969654664067:android:40fc00909aa397692d54b6",
+        "android_client_info": {
+          "package_name": "dev.quabynah.blog_app_project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "969654664067-mc8vkcts4jfmoj96g455llkiu29dnrsu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "dev.quabynah.blog_app_project",
+            "certificate_hash": "9affaa4597e47312649639458e17ed1417e57247"
+          }
+        },
+        {
+          "client_id": "969654664067-o98l5che7tqq17an2i1c9qkooi5059k6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7bqGMYII8kClfqKslrH-2uASRppzfBXk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "969654664067-o98l5che7tqq17an2i1c9qkooi5059k6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

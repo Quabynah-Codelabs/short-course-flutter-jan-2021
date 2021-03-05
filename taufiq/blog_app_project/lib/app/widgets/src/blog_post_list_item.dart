@@ -6,10 +6,10 @@ import 'package:flutter/material.dart';
 /// This is a scaffold for a list item in a list of [BlogPost]s
 class BlogPostListItem extends StatelessWidget {
   /// constructor
-  const BlogPostListItem({@required this.post});
+  const BlogPostListItem({required this.post});
 
   /// required property
-  final BlogPost post;
+  final BlogPost? post;
 
   @override
   Widget build(BuildContext context) {
@@ -30,25 +30,27 @@ class BlogPostListItem extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             /// image container
-            Container(
-              width: kWidth * 0.4,
-              height: kHeight * 0.15,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(kSpacingX16),
-                color: kTheme.colorScheme.onBackground.withOpacity(0.18),
-              ),
-              // force the corners of the image to fit the corners of
-              // the container itself
-              clipBehavior: Clip.hardEdge,
-              // load post image from network. Image should crop to fit the container
-              // so we use BoxFit.cover
-              child: Image.network(
-                post.imageUrl,
-                fit: BoxFit.cover,
-                width: kWidth * 0.4,
-                height: kHeight * 0.15,
-              ),
-            ),
+           if(post?.imageUrl != null) ... {
+             Container(
+               width: kWidth * 0.4,
+               height: kHeight * 0.15,
+               decoration: BoxDecoration(
+                 borderRadius: BorderRadius.circular(kSpacingX16),
+                 color: kTheme.colorScheme.onBackground.withOpacity(0.18),
+               ),
+               // force the corners of the image to fit the corners of
+               // the container itself
+               clipBehavior: Clip.hardEdge,
+               // load post image from network. Image should crop to fit the container
+               // so we use BoxFit.cover
+               child: Image.network(
+                 post!.imageUrl,
+                 fit: BoxFit.cover,
+                 width: kWidth * 0.4,
+                 height: kHeight * 0.15,
+               ),
+             )
+           },
 
             /// content container
             Expanded(
@@ -66,7 +68,7 @@ class BlogPostListItem extends StatelessWidget {
                     Text(
                       '05 Mins Read',
                       // set text theme
-                      style: kTheme.textTheme.caption.copyWith(
+                      style: kTheme.textTheme.caption?.copyWith(
                         // fade color of text
                         color: kTheme.colorScheme.onBackground.withOpacity(0.5),
                       ),
@@ -77,7 +79,7 @@ class BlogPostListItem extends StatelessWidget {
                     Text(
                       // access title prop of blog post passed into the constructor
                       // above.
-                      post.title,
+                      post!.title,
                       // set text theme
                       style: kTheme.textTheme.headline6,
                     ),
@@ -93,7 +95,7 @@ class BlogPostListItem extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Text(
-                              '${post.reviews}',
+                              '${post!.reviews}',
                               style: kTheme.textTheme.caption,
                             ),
                             SizedBox(width: kSpacingX4),
@@ -102,7 +104,7 @@ class BlogPostListItem extends StatelessWidget {
                             /// icons using external packages
                             Icon(
                               Icons.access_time_rounded,
-                              size: kTheme.textTheme.caption.fontSize,
+                              size: kTheme.textTheme.caption?.fontSize,
                             ),
                           ],
                         ),
@@ -112,7 +114,7 @@ class BlogPostListItem extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Text(
-                              '${post.comments}',
+                              '${post!.comments}',
                               style: kTheme.textTheme.caption,
                             ),
                             SizedBox(width: kSpacingX4),
@@ -121,7 +123,7 @@ class BlogPostListItem extends StatelessWidget {
                             /// icons using external packages
                             Icon(
                               Icons.message,
-                              size: kTheme.textTheme.caption.fontSize,
+                              size: kTheme.textTheme.caption?.fontSize,
                             ),
                           ],
                         ),

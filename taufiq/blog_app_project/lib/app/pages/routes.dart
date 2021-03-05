@@ -50,7 +50,7 @@ class CustomPageRoutes {
       case BLOG_DETAILS:
         return MaterialPageRoute(
           builder: (_) => settings.arguments is BlogPost
-              ? BlogDetailsPage(post: settings.arguments)
+              ? BlogDetailsPage(post: settings.arguments as BlogPost?)
               : throw Exception(
                   "Invalid argument passed. Expects a blog post but found ${settings.arguments.runtimeType}"),
         );
