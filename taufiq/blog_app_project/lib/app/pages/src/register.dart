@@ -26,6 +26,9 @@ class _RegisterPageState extends State<RegisterPage> {
 
   /// validate fields and create user account
   Future<void> _validateAndRegister() async {
+    Fimber.d(
+        'email -> ${_emailController.text.trim()} & password -> ${_passwordController.text.trim()}');
+
     /// check for valid form
     if (_formKey.currentState != null && _formKey.currentState!.validate()) {
       /// gets firebase authentication instance
