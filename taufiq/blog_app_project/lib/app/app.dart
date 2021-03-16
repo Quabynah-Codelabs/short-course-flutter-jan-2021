@@ -1,4 +1,4 @@
-import 'package:blog_app_project/app/pages/routes.dart';
+import 'package:blog_app_project/app/pages/pages.dart' show CustomPageRoutes;
 import 'package:blog_app_project/shared/shared.dart';
 import 'package:flutter/material.dart';
 
@@ -12,6 +12,7 @@ class BlogApp extends StatelessWidget {
       theme: ThemeData(
         textTheme: kDefaultTextTheme,
         cardColor: kCardColor,
+        scaffoldBackgroundColor: kBackgroundColor,
         colorScheme: ColorScheme.light(
           primary: kPrimaryColor,
           background: kBackgroundColor,
@@ -25,6 +26,7 @@ class BlogApp extends StatelessWidget {
         textTheme: kDefaultTextTheme,
         colorScheme: ColorScheme.dark(),
       ),
+      themeMode: ThemeMode.light,
       initialRoute: CustomPageRoutes.INITIAL,
       onGenerateRoute: CustomPageRoutes.generateRoutes,
     );

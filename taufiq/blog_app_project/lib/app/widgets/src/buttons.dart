@@ -4,14 +4,14 @@ import 'package:flutter/material.dart';
 /// Button with primary colored background
 class ButtonPrimary extends StatelessWidget {
   const ButtonPrimary({
-    @required this.buttonText,
-    @required this.onTap,
+    required this.buttonText,
+    required this.onTap,
     this.buttonWidth,
   });
 
   final String buttonText;
-  final double buttonWidth;
-  final Function onTap;
+  final double? buttonWidth;
+  final Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +30,7 @@ class ButtonPrimary extends StatelessWidget {
         ),
         child: Text(
           buttonText,
-          style: kTheme.textTheme.button.copyWith(
+          style: kTheme.textTheme.button?.copyWith(
             color: kTheme.colorScheme.onPrimary,
           ),
         ),
@@ -46,14 +46,14 @@ class ButtonPrimary extends StatelessWidget {
 /// Button with outlined background
 class ButtonOutlined extends StatelessWidget {
   const ButtonOutlined({
-    @required this.buttonText,
-    @required this.onTap,
+    required this.buttonText,
+    required this.onTap,
     this.buttonWidth,
   });
 
   final String buttonText;
-  final double buttonWidth;
-  final Function onTap;
+  final double? buttonWidth;
+  final Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -72,7 +72,7 @@ class ButtonOutlined extends StatelessWidget {
         ),
         child: Text(
           buttonText,
-          style: kTheme.textTheme.button.copyWith(
+          style: kTheme.textTheme.button?.copyWith(
             color: kTheme.colorScheme.onBackground,
           ),
         ),
