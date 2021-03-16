@@ -1,6 +1,8 @@
+library pages;
+
 import 'package:blog_app_project/app/pages/pages.dart';
 import 'package:blog_app_project/app/widgets/widgets.dart';
-import 'package:blog_app_project/data/entities/entities.dart';
+import 'package:blog_app_project/data/models/models.dart';
 import 'package:blog_app_project/shared/shared.dart';
 import 'package:flutter/material.dart';
 

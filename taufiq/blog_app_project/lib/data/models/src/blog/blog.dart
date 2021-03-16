@@ -1,8 +1,18 @@
+import 'package:blog_app_project/domain/entities/entities.dart';
+import 'package:json_annotation/json_annotation.dart';
+
+part 'blog.g.dart';
+
 /// Blog post data model
-class BlogPost {
+@JsonSerializable()
+class BlogPost extends BaseBlogPost {
+  // receive data from database
+  factory BlogPost.fromJson(Map<String, dynamic> json) =>
+      _$BlogPostFromJson(json);
+
   /// constructors
-  const BlogPost({
-    required this.id,
+  BlogPost({
+    required this.key,
     required this.title,
     required this.description,
     required this.imageUrl,
@@ -14,21 +24,34 @@ class BlogPost {
   });
 
   /// props
-  final String id;
+  @override
+  final String key;
+  @override
   final String title;
+  @override
   final String description;
+  @override
   final String imageUrl;
+  @override
   final String publisher;
+  @override
   final String timestamp;
+  @override
   final String category;
+  @override
   final int reviews;
+  @override
   final int comments;
+
+  // send data to database
+  @override
+  Map<String, dynamic> toJson() => _$BlogPostToJson(this);
 }
 
 /// I have added these samples for demo purposes
-const sampleBlogs = <BlogPost>[
+final sampleBlogs = <BaseBlogPost>[
   BlogPost(
-      id: "1",
+      key: "1",
       title: "Make  design systems people want to use.",
       description:
           """Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -45,7 +68,7 @@ const sampleBlogs = <BlogPost>[
       category: "Latest",
       publisher: "Ken Rogers"),
   BlogPost(
-      id: "2",
+      key: "2",
       title: "Become a master in color palette.",
       description:
           """Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -62,7 +85,7 @@ const sampleBlogs = <BlogPost>[
       category: "Latest",
       publisher: "Ken Rogers"),
   BlogPost(
-      id: "3",
+      key: "3",
       title: "UX Design Industry 2021 Growth",
       description:
           """Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -79,7 +102,7 @@ const sampleBlogs = <BlogPost>[
       category: "Latest",
       publisher: "Ken Rogers"),
   BlogPost(
-    id: "4",
+    key: "4",
     title: "Using motion design 2 animate graphics",
     description:
         """Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod

@@ -1,5 +1,5 @@
 import 'package:blog_app_project/app/pages/routes.dart';
-import 'package:blog_app_project/data/entities/entities.dart';
+import 'package:blog_app_project/domain/entities/entities.dart';
 import 'package:blog_app_project/shared/shared.dart';
 import 'package:flutter/material.dart';
 
@@ -9,7 +9,7 @@ class BlogPostListItem extends StatelessWidget {
   const BlogPostListItem({required this.post});
 
   /// required property
-  final BlogPost? post;
+  final BaseBlogPost? post;
 
   @override
   Widget build(BuildContext context) {

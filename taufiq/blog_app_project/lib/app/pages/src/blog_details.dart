@@ -1,12 +1,14 @@
-import 'package:blog_app_project/data/entities/entities.dart';
+library pages;
+
+import 'package:blog_app_project/domain/entities/entities.dart';
 import 'package:blog_app_project/shared/shared.dart';
 import 'package:flutter/material.dart';
 
 /// Details page for each [BlogPost]
 class BlogDetailsPage extends StatefulWidget {
-  const BlogDetailsPage({@required this.post});
+  const BlogDetailsPage({ required this.post});
 
-  final BlogPost? post;
+  final BaseBlogPost? post;
 
   @override
   _BlogDetailsPageState createState() => _BlogDetailsPageState();

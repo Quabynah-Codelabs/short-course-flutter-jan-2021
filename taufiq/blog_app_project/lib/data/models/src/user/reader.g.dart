@@ -1,22 +1,22 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'user.dart';
+part of 'reader.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-Blogger _$BloggerFromJson(Map<String, dynamic> json) {
-  return Blogger(
-    firstName: json['firstName'] as String,
+Reader _$ReaderFromJson(Map<String, dynamic> json) {
+  return Reader(
     key: json['key'] as String,
+    firstName: json['firstName'] as String,
     lastName: json['lastName'] as String,
     email: json['email'] as String,
     avatar: json['avatar'] as String?,
   );
 }
 
-Map<String, dynamic> _$BloggerToJson(Blogger instance) => <String, dynamic>{
+Map<String, dynamic> _$ReaderToJson(Reader instance) => <String, dynamic>{
       'key': instance.key,
       'firstName': instance.firstName,
       'lastName': instance.lastName,

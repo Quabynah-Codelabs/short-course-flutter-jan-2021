@@ -1,5 +1,7 @@
+library pages;
+
 import 'package:blog_app_project/app/pages/pages.dart';
-import 'package:blog_app_project/data/entities/entities.dart';
+import 'package:blog_app_project/domain/entities/entities.dart';
 import 'package:flutter/material.dart';
 
 /// wrapper class for exposing page routes
@@ -49,8 +51,8 @@ class CustomPageRoutes {
         return MaterialPageRoute(builder: (_) => SearchPage());
       case BLOG_DETAILS:
         return MaterialPageRoute(
-          builder: (_) => settings.arguments is BlogPost
-              ? BlogDetailsPage(post: settings.arguments as BlogPost?)
+          builder: (_) => settings.arguments is BaseBlogPost
+              ? BlogDetailsPage(post: settings.arguments as BaseBlogPost?)
               : throw Exception(
                   "Invalid argument passed. Expects a blog post but found ${settings.arguments.runtimeType}"),
         );

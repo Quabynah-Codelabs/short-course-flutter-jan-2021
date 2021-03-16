@@ -6,7 +6,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-// import 'data/entities/entities.dart';
+// import 'data/entities/models.dart';
 
 /// continuing from the previous session
 /// we will be creating the login and registration screens
@@ -14,6 +14,7 @@ import 'package:flutter/material.dart';
 ///
 ///
 /// flutter packages pub run build_runner build --delete-conflicting-outputs --verbose
+/// flutter packages pub run build_runner watch --delete-conflicting-outputs --verbose
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -38,6 +39,9 @@ void main() async {
   //       event.docs.map((snapshot) => User.fromSnapshot(snapshot)).toList();
   //   Fimber.d('All docs -> $docs');
   // });
+
+  var dateTime = DateTime.parse("2021-03-16T20:14:21+0000");
+  Fimber.d(dateTime.toIso8601String());
 
   runApp(BlogApp());
 }

@@ -1,3 +1,5 @@
+library pages;
+
 import 'package:blog_app_project/app/pages/routes.dart';
 import 'package:blog_app_project/app/widgets/widgets.dart';
 import 'package:blog_app_project/shared/shared.dart';

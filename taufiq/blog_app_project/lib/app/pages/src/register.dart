@@ -1,7 +1,7 @@
+library pages;
+
 import 'package:blog_app_project/app/widgets/widgets.dart';
-import 'package:blog_app_project/data/entities/entities.dart' show Blogger;
 import 'package:blog_app_project/shared/shared.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:fimber/fimber.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -56,28 +56,28 @@ class _RegisterPageState extends State<RegisterPage> {
                 'Unable to complete registration. Account may already exist',
           );
         } else {
-          /// create a new user's data model
-          var blogger = Blogger(
-            firstName: _firstNameController.text.trim(),
-            key: firebaseUser.uid,
-            lastName: _lastNameController.text.trim(),
-            email: _emailController.text.trim(),
-          );
-
-          /// save user data in users collection
-          await FirebaseFirestore.instance
-              .collection("users")
-              .doc(firebaseUser.uid)
-              .set(blogger.toJson(), SetOptions(merge: true));
-
-          setState(() {
-            _isLoading = !_isLoading;
-          });
-          showSnackBar(
-            context: context,
-            message:
-                'Welcome, ${_firstNameController.text.trim()}! Enjoy reading!',
-          );
+          /// todo -> create a new user's data model
+          // var blogger = BaseReader(
+          //   firstName: _firstNameController.text.trim(),
+          //   key: firebaseUser.uid,
+          //   lastName: _lastNameController.text.trim(),
+          //   email: _emailController.text.trim(),
+          // );
+          //
+          // /// save user data in users collection
+          // await FirebaseFirestore.instance
+          //     .collection("users")
+          //     .doc(firebaseUser.uid)
+          //     .set(blogger.toJson(), SetOptions(merge: true));
+          //
+          // setState(() {
+          //   _isLoading = !_isLoading;
+          // });
+          // showSnackBar(
+          //   context: context,
+          //   message:
+          //       'Welcome, ${_firstNameController.text.trim()}! Enjoy reading!',
+          // );
         }
       } catch (PlatformException, e) {
         setState(() {
