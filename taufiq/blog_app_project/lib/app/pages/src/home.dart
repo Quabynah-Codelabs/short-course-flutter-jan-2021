@@ -1,4 +1,4 @@
-import 'package:blog_app_project/app/pages/routes.dart';
+import 'package:blog_app_project/app/pages/pages.dart';
 import 'package:blog_app_project/app/widgets/widgets.dart';
 import 'package:blog_app_project/data/entities/entities.dart';
 import 'package:blog_app_project/shared/shared.dart';

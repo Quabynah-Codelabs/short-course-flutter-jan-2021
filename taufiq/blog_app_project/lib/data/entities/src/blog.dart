@@ -9,8 +9,8 @@ class BlogPost {
     required this.publisher,
     required this.timestamp,
     required this.category,
-    required this.reviews,
-    required this.comments,
+    this.reviews = 0,
+    this.comments = 0,
   });
 
   /// props

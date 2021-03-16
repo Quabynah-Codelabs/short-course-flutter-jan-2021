@@ -2,6 +2,7 @@ import 'package:blog_app_project/app/pages/routes.dart';
 import 'package:blog_app_project/app/widgets/widgets.dart';
 import 'package:blog_app_project/shared/shared.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_tabler_icons/flutter_tabler_icons.dart';
 
 class WelcomePage extends StatefulWidget {
   @override
@@ -39,10 +40,9 @@ class _WelcomePageState extends State<WelcomePage> {
               Positioned(
                 top: 0,
                 left: 0,
-                child: Image.asset(
-                  kLogoLight,
-                  height: kSpacingX36,
-                  width: kSpacingX36,
+                child: Icon(
+                  TablerIcons.home_2,
+                  size: kSpacingX36,
                 ),
               ),
 

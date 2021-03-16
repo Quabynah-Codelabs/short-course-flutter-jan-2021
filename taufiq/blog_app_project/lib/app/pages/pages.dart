@@ -6,3 +6,4 @@ export 'src/phone_auth.dart';
 export 'src/register.dart';
 export 'src/search.dart';
 export 'src/welcome.dart';
+export 'routes.dart';
