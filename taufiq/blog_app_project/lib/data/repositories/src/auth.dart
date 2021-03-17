@@ -63,7 +63,6 @@ class FirebaseAuthRepository implements BaseAuthenticationRepository {
 
       /// store user in database
       await userRepository.createUser(user);
-
       return Future.value();
     }
   }

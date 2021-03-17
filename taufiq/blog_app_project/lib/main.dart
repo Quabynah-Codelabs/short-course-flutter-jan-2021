@@ -1,12 +1,10 @@
 import 'package:blog_app_project/app/app.dart';
-
-// import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:blog_app_project/shared/shared.dart';
 import 'package:fimber/fimber.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-
-// import 'data/entities/models.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// continuing from the previous session
 /// we will be creating the login and registration screens
@@ -40,8 +38,9 @@ void main() async {
   //   Fimber.d('All docs -> $docs');
   // });
 
-  var dateTime = DateTime.parse("2021-03-16T20:14:21+0000");
-  Fimber.d(dateTime.toIso8601String());
+  /// dependency injection
+  await Injector.inject();
 
-  runApp(BlogApp());
+  /// State management using riverpod package
+  runApp(ProviderScope(child: BlogApp()));
 }
