@@ -14,8 +14,8 @@ class PreferenceHelper extends StateNotifier<String?> {
   }
 
   /// update user key locally
-  Future<void> updateUserKey(String key) async {
-    await _preferences.setString(kUserKey, key);
+  Future<void> updateUserKey(String? key) async {
+    await _preferences.setString(kUserKey, key ?? '');
     state = key;
   }
 }

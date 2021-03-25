@@ -5,3 +5,4 @@ export 'src/dimens.dart';
 export 'src/global.dart';
 export 'src/theme.dart';
 export 'src/injector.dart';
+export 'src/extensions.dart';

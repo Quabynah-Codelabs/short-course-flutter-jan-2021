@@ -2,6 +2,7 @@ import 'package:blog_app_project/domain/entities/entities.dart';
 
 /// repository class for handling transactions on the blog post database
 abstract class BaseBlogRepository {
+  const BaseBlogRepository();
   Future postBlogPost(BaseBlogPost post);
 
   Future updateBlogPost(BaseBlogPost post);

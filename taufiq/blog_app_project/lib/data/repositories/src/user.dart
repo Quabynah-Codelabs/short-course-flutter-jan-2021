@@ -1,13 +1,14 @@
 import 'package:blog_app_project/data/sources/sources.dart';
 import 'package:blog_app_project/domain/entities/entities.dart';
 import 'package:blog_app_project/domain/repositories/repositories.dart';
+import 'package:blog_app_project/domain/sources/sources.dart';
 
 /// base user repository implementation
 class UserRepository implements BaseUserRepository {
   UserRepository({required this.local, required this.remote});
 
-  final LocalDataSource local;
-  final RemoteDataSource remote;
+  final BaseUserLocalDataSource local;
+  final BaseUserRemoteDataSource remote;
 
   @override
   Future createUser(BaseUser user) async {

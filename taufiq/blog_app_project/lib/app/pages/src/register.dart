@@ -1,5 +1,6 @@
 library pages;
 
+import 'package:blog_app_project/app/bloc/src/auth/auth_cubit.dart';
 import 'package:blog_app_project/app/widgets/widgets.dart';
 import 'package:blog_app_project/shared/shared.dart';
 import 'package:fimber/fimber.dart';
@@ -22,7 +23,8 @@ class _RegisterPageState extends State<RegisterPage> {
   final _formKey = GlobalKey<FormState>();
 
   /// UI
-  bool _isLoading = false;
+  bool _loading = false;
+  final _authBloc = AuthCubit(Injector.get());
 
   /// validate fields and create user account
   Future<void> _validateAndRegister() async {
@@ -36,7 +38,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
       try {
         setState(() {
-          _isLoading = !_isLoading;
+          _loading = !_loading;
         });
 
         /// authenticate user
@@ -48,7 +50,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
         if (firebaseUser == null) {
           setState(() {
-            _isLoading = !_isLoading;
+            _loading = !_loading;
           });
           showSnackBar(
             context: context,
@@ -81,7 +83,7 @@ class _RegisterPageState extends State<RegisterPage> {
         }
       } catch (PlatformException, e) {
         setState(() {
-          _isLoading = !_isLoading;
+          _loading = !_loading;
         });
         Fimber.e(e.toString());
         showSnackBar(
@@ -93,95 +95,124 @@ class _RegisterPageState extends State<RegisterPage> {
   }
 
   @override
+  void initState() {
+    super.initState();
+    if (mounted) {
+      _authBloc.stream.listen((state) {});
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
     var kTheme = Theme.of(context);
     var kTextTheme = kTheme.textTheme;
+    var kColorScheme = kTheme.colorScheme;
     var kWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
-        body: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Flexible(
-          flex: 1,
-          child: Container(
-            width: kWidth,
-            padding: EdgeInsets.only(left: kSpacingX24),
-            color: kTheme.colorScheme.primary,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'Join us today',
-                  style: kTextTheme.headline4?.copyWith(
-                    color: kTheme.colorScheme.onPrimary,
-                  ),
-                ),
-                SizedBox(height: kSpacingX4),
-                Text(
-                  'Create a free account to get started...',
-                  style: kTextTheme.bodyText1?.copyWith(
-                    color: kTheme.colorScheme.onPrimary,
-                  ),
-                )
-              ],
-            ),
-          ),
-        ),
-        Flexible(
-          flex: 2,
-          child: Container(
-            color: kTheme.colorScheme.background,
-            padding: EdgeInsets.symmetric(
-              horizontal: kSpacingX24,
-              vertical: kSpacingX16,
-            ),
-            width: kWidth,
-            child: Form(
-              key: _formKey,
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Flexible(
+            flex: 1,
+            child: Container(
+              width: kWidth,
+              padding: EdgeInsets.only(left: kSpacingX24),
+              color: kTheme.colorScheme.primary,
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  TextFormField(
-                    validator: (text) => text == null || text.isEmpty
-                        ? 'First name is required'
-                        : null,
-                    controller: _firstNameController,
+                  Text(
+                    'Join us today',
+                    style: kTextTheme.headline4?.copyWith(
+                      color: kTheme.colorScheme.onPrimary,
+                    ),
                   ),
-                  TextFormField(
-                    validator: (text) => text == null || text.isEmpty
-                        ? 'Last name is required'
-                        : null,
-                    controller: _lastNameController,
-                  ),
-                  TextFormField(
-                    validator: (text) => text == null || text.isEmpty
-                        ? 'Email is required'
-                        : null,
-                    controller: _emailController,
-                  ),
-                  TextFormField(
-                    validator: (text) => text == null || text.isEmpty
-                        ? 'Password is required'
-                        : null,
-                    obscureText: true,
-                    controller: _passwordController,
-                  ),
-                  SizedBox(height: kSpacingX16),
-                  _isLoading
-                      ? CircularProgressIndicator.adaptive()
-                      : ButtonPrimary(
-                          buttonText: 'Sign up',
-                          onTap: _validateAndRegister,
-                        ),
+                  SizedBox(height: kSpacingX4),
+                  Text(
+                    'Create a free account to get started...',
+                    style: kTextTheme.bodyText1?.copyWith(
+                      color: kTheme.colorScheme.onPrimary,
+                    ),
+                  )
                 ],
               ),
             ),
           ),
-        ),
-      ],
-    ));
+          Flexible(
+            flex: 2,
+            child: Container(
+              color: kTheme.colorScheme.background,
+              padding: EdgeInsets.symmetric(
+                horizontal: kSpacingX24,
+                vertical: kSpacingX16,
+              ),
+              width: kWidth,
+              child: Form(
+                key: _formKey,
+                child: SingleChildScrollView(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      InputTextField(
+                        validator: (text) => text == null || text.isEmpty
+                            ? 'First name is required'
+                            : null,
+                        controller: _firstNameController,
+                        enabled: !_loading,
+                        hint: 'First Name',
+                        error: 'First name is required',
+                        textCapitalization: TextCapitalization.words,
+                        textInputType: TextInputType.name,
+                      ),
+                      InputTextField(
+                        validator: (text) => text == null || text.isEmpty
+                            ? 'Last name is required'
+                            : null,
+                        controller: _lastNameController,
+                        enabled: !_loading,
+                        hint: 'Last Name',
+                        error: 'Last name is required',
+                        textCapitalization: TextCapitalization.words,
+                        textInputType: TextInputType.name,
+                      ),
+                      InputTextField(
+                        validator: (text) => text == null || text.isEmpty
+                            ? 'Email is required'
+                            : null,
+                        controller: _emailController,
+                        hint: 'Email Address',
+                        error: 'Email address is required',
+                        textInputType: TextInputType.emailAddress,
+                        enabled: !_loading,
+                      ),
+                      InputTextField(
+                        validator: (text) => text == null || text.isEmpty
+                            ? 'Password is required'
+                            : null,
+                        obscureText: true,
+                        controller: _passwordController,
+                        hint: 'Password',
+                        error: 'Password is required',
+                        enabled: !_loading,
+                      ),
+                      SizedBox(height: kSpacingX16),
+                      _loading
+                          ? CircularProgressIndicator.adaptive()
+                          : ButtonPrimary(
+                              buttonText: 'Sign up',
+                              onTap: _validateAndRegister,
+                            ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }

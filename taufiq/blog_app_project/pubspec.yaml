@@ -23,8 +23,9 @@ dependencies:
   flutter_tabler_icons: ^1.0.3-rc.1
   shared_preferences: ^2.0.5
   flutter_riverpod: ^0.13.1
-  riverpod: ^0.13.1
-
+  equatable: ^2.0.0
+  bloc: ^7.0.0
+  flutter_bloc: ^7.0.0
 
 dev_dependencies:
   flutter_test:

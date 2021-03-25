@@ -1,5 +1,6 @@
 import 'package:blog_app_project/data/helper/preference_helper.dart';
 import 'package:blog_app_project/data/models/models.dart';
+import 'package:blog_app_project/domain/entities/entities.dart';
 import 'package:blog_app_project/domain/repositories/repositories.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -15,13 +16,13 @@ class FirebaseAuthRepository implements BaseAuthenticationRepository {
   final BaseUserRepository userRepository;
 
   @override
-  Future login({required String email, required String password}) async {
+  Future<BaseUser> login({required String email, required String password}) async {
     // TODO: implement login
     throw UnimplementedError();
   }
 
   @override
-  Future phoneNumberLogin(String phoneNumber) async {
+  Future<BaseUser> phoneNumberLogin(String phoneNumber) async {
     // TODO: implement phoneNumberLogin
     throw UnimplementedError();
   }
@@ -33,7 +34,7 @@ class FirebaseAuthRepository implements BaseAuthenticationRepository {
   }
 
   @override
-  Future register({
+  Future<BaseUser> register({
     required String email,
     required String password,
     required String firstName,
